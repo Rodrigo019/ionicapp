@@ -1,0 +1,26 @@
+<ion-grid>
+  <ion-row>
+    <ion-col size="10">
+      <ion-item>
+        <ion-label position="floating">Nome do filme</ion-label>
+        <ion-input [(ngModel)]="NomeDoFilme"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="2">
+      <button class="btn btn-light" color="light" >Buscar</button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-list>
+  <ion-item *ngFor="let filme of FilmesPage">
+    {{ filme }}
+  </ion-item>
+</ion-list>
+
+<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+  <ion-infinite-scroll-content
+    loadingSpinner="bubbles"
+    loadingText="Loading more data...">
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>
