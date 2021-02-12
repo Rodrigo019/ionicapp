@@ -1,3 +1,6 @@
+import { Filme } from 'src/app/models/filme/filme';
+import { Filme } from './../../models/filme/filme';
+import { FilmeService } from './../../services/filme/filme.service';
 import { Component, OnInit } from '@angular/core';
 import { NumberValueAccessor } from '@angular/forms';
 
@@ -8,23 +11,30 @@ import { NumberValueAccessor } from '@angular/forms';
 })
 export class FilmeListagemPage implements OnInit {
 
-  Filmes: string[] = [];
-  FilmesPage: string[] = [];
+  Filmes: Filme[] = [];  
   NomeDoFilme: string = null;
   
-  private readonly offset: number = 16;
-  private index: number = 0;
+  private index: number = 1;
 
+  constructor(
+    protected filmeService: FilmeService
+  )
+  {    
+    this.filmeService.BuscarFilmesPopulares(true, this.index).subscribe(
+      retorno => {
+        if (retorno)
+        {
+          retorno.results.forEach((x,i) => this.Filmes.push(x));
+          this.index++;
 
-  constructor()
-  { 
-    for (let i: number = 0; i < 100; i++)
-    {
-      this.Filmes.push(`Item ${i+1}`)
-    }
-    this.FilmesPage = this.Filmes.slice(this.index, this.offset + this.index);
-    this.index += this.offset;
+          console.log(this.Filmes);
+        }
+    },
+      erro => {
+        console.log(erro);
+    });
   }
+
   ngOnInit() {
     
   }
@@ -32,15 +42,16 @@ export class FilmeListagemPage implements OnInit {
   loadData($event) 
   {
     setTimeout(() => {
-      let news = this.Filmes.slice(this.index, this.offset + this.index);
-      this.index += this.offset;
 
-      for (let i:number=0; i < news.length; i++)
-      {
-        this.FilmesPage.push(news[i]);
-      }
-
-      $event.target.complete()
+      this.filmeService.BuscarFilmesPopulares(true, this.index).subscribe(
+        retorno => {
+          retorno.results.forEach(x => this.Filmes.push(x));
+          this.index++;
+          $event.target.complete();
+      }, 
+        erro => {
+          console.log(erro);
+      });
     }, 1200);
   }
 }

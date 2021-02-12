@@ -5,12 +5,21 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class BaseRequestService<T> {
+export class BaseRequestService {
+
+  private readonly apiKey: string = '51c00948cb3ed8e7a4de7d21ce5700a7';
 
   constructor(protected client: HttpClient) { }
 
-  public Get(url: string) : Observable<T> {
-    url += '?api_key=51c00948cb3ed8e7a4de7d21ce5700a7&language=pt-BR';
+  protected Get<T>(url: string, retornoEmPtBr?: boolean, pagina?: number) : Observable<T> {
+
+    url = `${url}?api_key=${this.apiKey}`;
+
+    if (retornoEmPtBr)
+      url = `${url}&language=pt-BR`;
+    if (pagina)
+      url = `${url}&page=${pagina}`
+    
     return this.client.get<T>(url);
   }
 }
