@@ -1,8 +1,6 @@
 import { Filme } from 'src/app/models/filme/filme';
-import { Filme } from './../../models/filme/filme';
 import { FilmeService } from './../../services/filme/filme.service';
 import { Component, OnInit } from '@angular/core';
-import { NumberValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'app-filme-listagem',
@@ -12,8 +10,7 @@ import { NumberValueAccessor } from '@angular/forms';
 export class FilmeListagemPage implements OnInit {
 
   Filmes: Filme[] = [];  
-  NomeDoFilme: string = null;
-  
+  NomeDoFilme: string = null;  
   private index: number = 1;
 
   constructor(
