@@ -1,0 +1,22 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{ Filme.title }}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+
+    <img [src]="Filme.poster_path">
+
+    
+    <ion-row>
+      <ion-col size="3" *ngFor="let genero of Filme.genres">
+        <ion-badge color="primary">{{ genero.name }}</ion-badge>
+      </ion-col>        
+    </ion-row>
+
+    <p>{{ Filme.overview }}</p>
+  </ion-card-content>
+
+
+
+</ion-card>

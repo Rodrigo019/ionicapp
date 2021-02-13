@@ -9,7 +9,7 @@
         </ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <img [src]="filme.poster_path">
+        <img [src]="filme.poster_path" [routerLink]="['filme-detalhe/' + filme.id]">
       </ion-card-content>
     </ion-card>
   </ion-item>

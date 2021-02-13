@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
 import { FilmePageRoutingModule } from './filme-routing.module';
-
 import { FilmePage } from './filme.page';
 import { FilmeListagemPageModule } from 'src/app/components/filme-listagem/filme-listagem.module';
 
@@ -15,7 +12,7 @@ import { FilmeListagemPageModule } from 'src/app/components/filme-listagem/filme
     FormsModule,
     IonicModule,
     FilmePageRoutingModule,
-    FilmeListagemPageModule
+    FilmeListagemPageModule,
   ],
   declarations: [FilmePage]
 })

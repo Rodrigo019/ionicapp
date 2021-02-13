@@ -20,12 +20,8 @@ const routes: Routes = [
     loadChildren: () => import('./views/series/serie.module').then( m => m.SeriePageModule)
   },
   {
-    path: 'filme-listagem',
-    loadChildren: () => import('./components/filme-listagem/filme-listagem.module').then( m => m.FilmeListagemPageModule)
-  },
-  {
-    path: 'serie-listagem',
-    loadChildren: () => import('./components/serie-listagem/serie-listagem.module').then( m => m.SerieListagemPageModule)
+    path: 'filmes/filme-detalhe/:id',
+    loadChildren: () => import('./views/filme-detalhe/filme-detalhe.module').then( m => m.FilmeDetalhePageModule)
   }
 ];
 

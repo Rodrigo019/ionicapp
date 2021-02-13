@@ -26,6 +26,6 @@ export class FilmeService extends BaseRequestService {
 
   public BuscarFilmeEspecifico(filmeId: number, retornoEmPtBr?: boolean, pagina?: number) : Observable<Filme>
   {
-    return super.Get(`${this.urlBuscaFilmeEspecifico}/${filmeId}`, retornoEmPtBr, pagina);
+    return super.Get(`${this.urlBuscaFilmeEspecifico}${filmeId}`, retornoEmPtBr, pagina);
   }
 }
