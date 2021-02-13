@@ -1,4 +1,4 @@
-<!-- <app-filme-filtro (FilmesEmmiter)="filtrar($event)"></app-filme-filtro> -->
+<app-filme-filtro (FilmesEmmiter)="filtrar($event)" [Filmes]="FilmesMemoria"></app-filme-filtro>
 
 <ion-list>
   <ion-item *ngFor="let filme of Filmes">

@@ -11,16 +11,17 @@ export class FilmeListagemPage implements OnInit {
 
   @Input() NomeDoFilme: string = null;  
 
-  private Filmes: Filme[] = []; 
-  private FilmesFiltrados: Filme[] = [];  
-  private index: number = 1;
+  private FilmesMemoria: Filme[] = [];
+  private FilmesCarregados: Filme[] = [];
+  private Filmes: Filme[] = [];  
+  private Index: number = 1;
 
   constructor(
     protected filmeService: FilmeService
   )
-  {    
-    this.filmeService.BuscarFilmesPopulares(true, this.index).subscribe(
-      retorno => {
+  { 
+     this.filmeService.BuscarFilmesPopulares(true, this.Index).subscribe(
+       retorno => {
         if (retorno)
         {
           retorno.results.forEach((x,i) => 
@@ -28,41 +29,62 @@ export class FilmeListagemPage implements OnInit {
             x.poster_path = `https://www.themoviedb.org/t/p/original${x.poster_path}`;
             this.Filmes.push(x);
           });
-          this.index++;
+          this.Index++;
         }
-    },
-      erro => {
-        console.log(erro);
-    });
+     },
+       erro => {
+         console.log(erro);
+     });
   }
 
   ngOnInit() {
-    
+    this.carregarFilmesMemoria();
   }
 
   loadData($event) 
   {
     setTimeout(() => {
+     this.filmeService.BuscarFilmesPopulares(true, this.Index).subscribe(
+         retorno => {
+           retorno.results.forEach(x => 
+             {
+               x.poster_path = `https://www.themoviedb.org/t/p/original${x.poster_path}`;
+               this.Filmes.push(x);
+             });
+           this.Index++;
+           $event.target.complete();
+       }, 
+         erro => {
+           console.log(erro);
+       });
+    }, 1200);
+  }
 
-      this.filmeService.BuscarFilmesPopulares(true, this.index).subscribe(
+  carregarFilmesMemoria()
+  {
+    for (let i=1; i<=500; i++)
+    {
+      this.filmeService.BuscarFilmesPopulares(true, i).subscribe(
         retorno => {
           retorno.results.forEach(x => 
-            {
-              x.poster_path = `https://www.themoviedb.org/t/p/original${x.poster_path}`;
-              this.Filmes.push(x);
-            });
-          this.index++;
-          $event.target.complete();
+          {
+            x.poster_path = `https://www.themoviedb.org/t/p/original${x.poster_path}`;
+            this.FilmesMemoria.push(x);
+          });
       }, 
         erro => {
           console.log(erro);
       });
-    }, 1200);
+    }
   }
 
-  filtrar($event: Filme[])
-  {
-    this.FilmesFiltrados = $event;
-    console.log(this.FilmesFiltrados);
+  filtrar($event) {
+    if ($event.length > 0)
+    {
+      console.log($event);
+      this.FilmesCarregados = this.Filmes;
+      this.Filmes = $event;
+      this.Filmes.concat($event)
+    }
   }
 }

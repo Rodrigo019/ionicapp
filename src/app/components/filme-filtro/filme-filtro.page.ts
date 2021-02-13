@@ -1,6 +1,11 @@
-import { FilmeService } from './../../services/filme/filme.service';
 import { Filme } from 'src/app/models/filme/filme';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ModalFiltroFilmePage } from './../modal-filtro-filme/modal-filtro-filme.page';
+import { FilmeFiltro } from './../../models/filme/filmefiltro';
+import { PopoverComponent } from './../popover/popover.component';
+import { FilmeService } from './../../services/filme/filme.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { OverlayEventDetail } from '@ionic/core'
 
 @Component({
   selector: 'app-filme-filtro',
@@ -9,18 +14,36 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class FilmeFiltroPage implements OnInit {
 
+  @Input() Filmes: Filme[] = [];
   @Output() FilmesEmmiter = new EventEmitter<Filme[]>();
+  FilmeFiltro: FilmeFiltro = new FilmeFiltro();  
+  FilmesFiltrados: Filme[] = [];
 
-  FilmesFiltrados: Filme[] = [];  
-
-  constructor(protected filmeService: FilmeService) { }
+  constructor(
+    protected filmeService: FilmeService, 
+    protected modalController: ModalController
+    ) { }
 
   ngOnInit() {
   }
 
-  filtrar()
-  {
+  async presentPopover(event) {
+    let modal = this.modalController.create({
+      component: ModalFiltroFilmePage,
+    });
     
-    this.FilmesEmmiter.emit(this.FilmesFiltrados);
+    (await modal).onDidDismiss().then((retorno: OverlayEventDetail<FilmeFiltro>) => {
+      this.FilmeFiltro.titulo = retorno.data.titulo;
+      this.filtrarFilmes();
+      this.FilmesEmmiter.emit(this.FilmesFiltrados);       
+    });
+
+    return (await modal).present();
+  }
+
+  filtrarFilmes() 
+  {
+    if (this.FilmeFiltro.titulo)
+      this.FilmesFiltrados = this.Filmes.filter(x => x.title.toLowerCase().indexOf(this.FilmeFiltro.titulo.toLowerCase()) > -1);
   }
 }
