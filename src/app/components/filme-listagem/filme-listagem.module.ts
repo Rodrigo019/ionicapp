@@ -1,3 +1,4 @@
+import { FilmeFiltroPageModule } from './../filme-filtro/filme-filtro.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -13,7 +14,8 @@ import { FilmeListagemPage } from './filme-listagem.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    FilmeListagemPageRoutingModule
+    FilmeListagemPageRoutingModule,
+    FilmeFiltroPageModule
   ],
   exports: [
     FilmeListagemPage

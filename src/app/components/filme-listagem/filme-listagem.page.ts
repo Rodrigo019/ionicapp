@@ -1,6 +1,6 @@
 import { Filme } from 'src/app/models/filme/filme';
 import { FilmeService } from './../../services/filme/filme.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-filme-listagem',
@@ -9,8 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilmeListagemPage implements OnInit {
 
-  Filmes: Filme[] = [];  
-  NomeDoFilme: string = null;  
+  @Input() NomeDoFilme: string = null;  
+
+  private Filmes: Filme[] = []; 
+  private FilmesFiltrados: Filme[] = [];  
   private index: number = 1;
 
   constructor(
@@ -21,10 +23,12 @@ export class FilmeListagemPage implements OnInit {
       retorno => {
         if (retorno)
         {
-          retorno.results.forEach((x,i) => this.Filmes.push(x));
+          retorno.results.forEach((x,i) => 
+          {
+            x.poster_path = `https://www.themoviedb.org/t/p/original${x.poster_path}`;
+            this.Filmes.push(x);
+          });
           this.index++;
-
-          console.log(this.Filmes);
         }
     },
       erro => {
@@ -42,7 +46,11 @@ export class FilmeListagemPage implements OnInit {
 
       this.filmeService.BuscarFilmesPopulares(true, this.index).subscribe(
         retorno => {
-          retorno.results.forEach(x => this.Filmes.push(x));
+          retorno.results.forEach(x => 
+            {
+              x.poster_path = `https://www.themoviedb.org/t/p/original${x.poster_path}`;
+              this.Filmes.push(x);
+            });
           this.index++;
           $event.target.complete();
       }, 
@@ -50,5 +58,11 @@ export class FilmeListagemPage implements OnInit {
           console.log(erro);
       });
     }, 1200);
+  }
+
+  filtrar($event: Filme[])
+  {
+    this.FilmesFiltrados = $event;
+    console.log(this.FilmesFiltrados);
   }
 }
