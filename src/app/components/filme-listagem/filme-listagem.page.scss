@@ -1,8 +1,25 @@
-ion-card {
-    width: 100%;
-    margin-top: 20px;
+
+ion-item:first-of-type {
+    margin-top: 30px;
 }
 
-ion-card-title {
-    text-align: center;
-} 
+ion-row {
+    margin-top: 0 !important;
+}
+
+ion-card {
+    width: 100%;    
+}
+
+ion-card-content {
+    height: 100%;
+    padding: 0;
+}
+
+ion-row:first-of-type {
+    margin-top: 30px;
+}
+
+ion-col {
+    padding: 0;
+}
