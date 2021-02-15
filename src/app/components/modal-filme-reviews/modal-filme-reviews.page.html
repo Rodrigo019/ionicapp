@@ -11,13 +11,6 @@
 
 <ion-content>
   
-  <ion-tabs>
-    <ion-tab [root]="EmPtBr">
-      
-    </ion-tab>
-    <ion-tab [root]="EmEnUs"></ion-tab>
-  </ion-tabs>
-
   <ion-card *ngFor="let review of RetornoReviews.results">
     <ion-card-header>
       {{ review.author }}
@@ -26,5 +19,11 @@
        <p>{{ review.content }}</p>
     </ion-card-content>
   </ion-card> 
+
+  <ion-card *ngIf="RetornoReviews === undefined || RetornoReviews.results.length === 0">
+    <ion-card-header>
+      Não há reviews para esse filme! :(
+    </ion-card-header>
+  </ion-card>  
 
 </ion-content>

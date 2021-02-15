@@ -26,6 +26,7 @@ export class ModalFilmeReviewsPage implements OnInit {
         this.filmeService.BuscarReviews(filmeId).subscribe(
           (retorno: RetornoReviews) => {
             retorno.results?.forEach(x => this.RetornoReviews.results.push(x));
+            console.log(this.RetornoReviews);
           },
           erro => {
             console.log(erro);
