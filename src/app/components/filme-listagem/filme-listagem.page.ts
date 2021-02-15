@@ -140,8 +140,6 @@ export class FilmeListagemPage implements OnInit {
           cont = 0;
         }
       });
-      //this.Filmes = $event;
-      //this.Filmes.concat($event)
     }
   }
 }

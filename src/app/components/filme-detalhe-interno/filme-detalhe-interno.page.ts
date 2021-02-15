@@ -34,8 +34,6 @@ export class FilmeDetalheInternoPage implements OnInit {
           this.Filme = retorno;
           this.Filme.poster_path = `https://www.themoviedb.org/t/p/original${this.Filme.poster_path}`;
           this.QtdLinhasGenero = (this.Filme.genres.length / 3) <= 1 ? 1 : 2;
-
-          console.log(this.Filme);
       },
         erro => {
           console.log(erro);

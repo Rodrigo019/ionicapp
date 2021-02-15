@@ -20,22 +20,25 @@ export class FilmeFiltroPage implements OnInit {
   FilmesFiltrados: Filme[] = [];
 
   constructor(
-    protected filmeService: FilmeService, 
     protected modalController: ModalController
     ) { }
 
   ngOnInit() {
   }
 
-  async presentPopover(event) {
+  async presentModal(event) {
     let modal = this.modalController.create({
       component: ModalFiltroFilmePage,
     });
     
     (await modal).onDidDismiss().then((retorno: OverlayEventDetail<FilmeFiltro>) => {
-      this.FilmeFiltro.titulo = retorno.data.titulo;
-      this.filtrarFilmes();
-      this.FilmesEmmiter.emit(this.FilmesFiltrados);       
+      console.log(retorno);
+      if (retorno.data !== undefined)
+      {
+        this.FilmeFiltro.titulo = retorno.data.titulo;
+        this.filtrarFilmes();
+        this.FilmesEmmiter.emit(this.FilmesFiltrados);       
+      }
     });
 
     return (await modal).present();

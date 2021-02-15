@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button ion-button (click)="closeModal()">
+        <ion-icon slot="end" name="close-outline"></ion-icon>
+      </ion-button>
+      <ion-title>Reviews</ion-title>    
+    </ion-buttons>   
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-tabs>
+    <ion-tab [root]="EmPtBr">
+      
+    </ion-tab>
+    <ion-tab [root]="EmEnUs"></ion-tab>
+  </ion-tabs>
+
+  <ion-card *ngFor="let review of RetornoReviews.results">
+    <ion-card-header>
+      {{ review.author }}
+    </ion-card-header>
+    <ion-card-content>
+       <p>{{ review.content }}</p>
+    </ion-card-content>
+  </ion-card> 
+
+</ion-content>

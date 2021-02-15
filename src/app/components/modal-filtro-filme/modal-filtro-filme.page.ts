@@ -15,10 +15,14 @@ export class ModalFiltroFilmePage implements OnInit {
 
   ngOnInit() {}
 
-  closeModal() 
+  filtrar() 
   {
     this.modalCtrl.dismiss({
       'titulo': this.FilmeFiltro.titulo
     });
+  }
+
+  closeModal() {
+    this.modalCtrl.dismiss();
   }
 }

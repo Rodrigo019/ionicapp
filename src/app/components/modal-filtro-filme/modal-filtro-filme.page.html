@@ -1,13 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button ion-button (click)="closeModal()">
+        <ion-icon slot="end" name="close-outline"></ion-icon>
+      </ion-button>
+      <ion-title>Filtrar filmes</ion-title>
+      <ion-button ion-button (click)="filtrar()">
+        <ion-icon slot="end" name="search-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>   
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
-  <ion-button ion-button (click)="closeModal()">Filtrar</ion-button>
 
   <ion-row>
     <ion-col size="12">
       <ion-input [(ngModel)]="FilmeFiltro.titulo" placeholder="Nome do filme"></ion-input>
     </ion-col>
   </ion-row>
+  
 </ion-content>
-
-
-
-

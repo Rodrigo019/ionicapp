@@ -1,13 +1,8 @@
 <ion-card>
-  <ion-card-header>
-    <ion-card-title>{{ Filme.title }}</ion-card-title>
-  </ion-card-header>
-
   <ion-card-content>
 
     <img [src]="Filme.poster_path">
 
-    
     <ion-row>
       <ion-col size="3" *ngFor="let genero of Filme.genres">
         <ion-badge color="primary">{{ genero.name }}</ion-badge>
@@ -15,8 +10,11 @@
     </ion-row>
 
     <p>{{ Filme.overview }}</p>
-  </ion-card-content>
 
+    <app-filme-onde-assistir [FilmeId]="Filme.id"></app-filme-onde-assistir>
+    <app-filme-reviews [FilmeId]="Filme.id"></app-filme-reviews>
+
+  </ion-card-content>
 
 
 </ion-card>
