@@ -1,3 +1,4 @@
+import { RetornoCreditos } from './../../models/filme/retornocreditos';
 import { RetornoFilmes } from './../../models/filme/retornofilmes';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -15,6 +16,7 @@ export class FilmeService extends BaseRequestService {
   private readonly urlBuscaFilmeEspecifico: string = 'https://api.themoviedb.org/3/movie/';
   private readonly urlBuscaWhatchProviders: string = 'https://api.themoviedb.org/3/movie/filmeId/watch/providers'
   private readonly urlBuscaReviews: string = 'https://api.themoviedb.org/3/movie/filmeId/reviews';
+  private readonly urlBuscaCreditos: string = 'https://api.themoviedb.org/3/movie/filmeId/credits';
 
   constructor(protected client: HttpClient) 
   {
@@ -46,5 +48,11 @@ export class FilmeService extends BaseRequestService {
 
     return super.Get(url, retornoEmPtBr, pagina);
   }
-  
+
+  public BuscaCreditos(filmeId: number, retornoEmPtBr?: boolean, pagina?: number)   : Observable<RetornoCreditos> {
+    let url = this.urlBuscaCreditos;
+    url = url.replace('filmeId', filmeId.toString());
+
+    return super.Get(url, retornoEmPtBr, pagina);
+  }
 }
