@@ -1,12 +1,30 @@
 <ion-card>
   <ion-card-content>
 
-    <img [src]="Filme.poster_path">
+    <ion-row>
+      <ion-col size="8" offset="2">
+        <img [src]="Filme.poster_path">
+      </ion-col>
+    </ion-row>
 
     <ion-row>
-      <ion-col size="3" *ngFor="let genero of Filme.genres">
-        <ion-badge color="primary">{{ genero.name }}</ion-badge>
-      </ion-col>        
+      <ion-col size="6">
+        <ion-row>
+          <ion-col size="12">
+            Lançamento: {{ Filme.release_date }}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            Média de votos: {{ Filme.vote_average }}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            Total de votos: {{ Filme.vote_count }}
+          </ion-col>
+        </ion-row>
+      </ion-col>
     </ion-row>
 
     <p>{{ Filme.overview }}</p>
@@ -17,3 +35,5 @@
 
   </ion-card-content>
 </ion-card>
+
+<div class="bg-fundo" [style.backgroundImage]="getbackgroundImage()"></div>

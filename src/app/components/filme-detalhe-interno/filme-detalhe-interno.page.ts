@@ -14,6 +14,7 @@ export class FilmeDetalheInternoPage implements OnInit {
   private Filme: Filme = new Filme();
   private FilmesRelacionados: Filme[] = [];
   private QtdLinhasGenero: number = null;
+  private BackgroundImage: string;
 
   constructor(
     private filmeService: FilmeService
@@ -32,13 +33,20 @@ export class FilmeDetalheInternoPage implements OnInit {
       this.filmeService.BuscarFilmeEspecifico(this.Id, true).subscribe(
         retorno => {
           this.Filme = retorno;
+          this.Filme.release_date = `${this.Filme.release_date.split('-')[2]}/${this.Filme.release_date.split('-')[1]}/${this.Filme.release_date.split('-')[0]}`
           this.Filme.poster_path = `https://www.themoviedb.org/t/p/original${this.Filme.poster_path}`;
+          this.BackgroundImage = this.Filme.poster_path;
           this.QtdLinhasGenero = (this.Filme.genres.length / 3) <= 1 ? 1 : 2;
       },
         erro => {
           console.log(erro);
       });
     }
+  }
+
+  getbackgroundImage() 
+  {
+    return `url(${this.BackgroundImage})`
   }
 
 
