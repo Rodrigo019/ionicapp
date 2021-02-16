@@ -11,11 +11,9 @@
 
     <p>{{ Filme.overview }}</p>
 
+    <app-filme-elenco-principal [FilmeId]="Filme.id"></app-filme-elenco-principal>
     <app-filme-onde-assistir [FilmeId]="Filme.id" [FilmeNome]="Filme.title"></app-filme-onde-assistir>
     <app-filme-reviews [FilmeId]="Filme.id"></app-filme-reviews>
-    <app-filme-creditos [FilmeId]="Filme.id"></app-filme-creditos>
 
   </ion-card-content>
-
-
 </ion-card>
