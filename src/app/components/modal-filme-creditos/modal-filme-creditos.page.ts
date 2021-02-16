@@ -31,7 +31,7 @@ export class ModalFilmeCreditosPage implements OnInit {
         let castLinha: Cast[] = [];
         
         this.RetornoCreditos.cast.forEach(x => {
-          if (cont < 3)
+          if (cont < 2)
           {            
             castLinha.push(x);
             cont++;

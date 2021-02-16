@@ -1,18 +1,28 @@
-
 ion-row {
     margin-top: 0 !important;
+    margin-bottom: 10px;
 }
-
 ion-card {
-    width: 100%;    
+    text-align: center !important;
+    padding: 0;
+    margin: 0;
+    width: 100%;
 }
-
+ion-card-header {
+    text-align: center;
+    font-weight: 1.3rem;
+}
 ion-card-content {
     height: 100%;
     padding: 0;
+    margin: 5px;
 }
-
-
 ion-col {
     padding: 0;
+}
+img {
+    width: 100%;
+}
+ion-card-footer {
+    font-size: .8rem;
 }

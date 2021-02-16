@@ -10,6 +10,7 @@ import { ModalOndeAssistirFilmePage } from '../modal-onde-assistir-filme/modal-o
 export class FilmeOndeAssistirPage implements OnInit {
 
   @Input() FilmeId: number;
+  @Input() FilmeNome: string;
 
   constructor(
     protected modalController: ModalController
@@ -21,7 +22,7 @@ export class FilmeOndeAssistirPage implements OnInit {
   async presentModal(event) {
     let modal = this.modalController.create({
       component: ModalOndeAssistirFilmePage,
-      componentProps: { 'FilmeId': this.FilmeId }
+      componentProps: { 'FilmeId': this.FilmeId, 'FilmeNome': this.FilmeNome }
     });
 
     return (await modal).present();
