@@ -13,6 +13,7 @@ export class ModalOndeAssistirFilmePage implements OnInit {
 
   private UrlGooglePlay: string = 'https://play.google.com/store/search?c=movies&q=';
   private UrlMicrosoftStore: string = 'https://www.microsoft.com/pt-br/search/shop/Movies?q=';
+  private UrlNetflix: string = 'http://www.netflix.com.br';
   private WatchProviders: RetornoWatchProviders = null;
   private FilmeNome: string = null;
 
@@ -71,7 +72,13 @@ export class ModalOndeAssistirFilmePage implements OnInit {
               x.logo_path = `https://www.themoviedb.org/t/p/original${x.logo_path}`
             });
         if (this.WatchProviders.flatrate)
-          this.WatchProviders.flatrate.forEach(x => x.logo_path = `https://www.themoviedb.org/t/p/original${x.logo_path}`);
+          this.WatchProviders.flatrate.forEach(x => 
+            {
+              if (x.provider_id === 8)
+              x.url = this.UrlNetflix;
+
+              x.logo_path = `https://www.themoviedb.org/t/p/original${x.logo_path}`
+            });
       }
     },
     erro => {

@@ -43,8 +43,6 @@ export class ModalFilmeCreditosPage implements OnInit {
             cont = 0;
           }
         });
-
-        console.log(this.MatrizDeCast);
       },
       erro => console.log(erro)
     );

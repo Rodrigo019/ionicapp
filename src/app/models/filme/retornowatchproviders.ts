@@ -7,4 +7,5 @@ export class RetornoWatchProviders {
     flatrate: Flatrate[];
     rent: Rent[];
     buy: Buy[];
+    url: string;
 }
