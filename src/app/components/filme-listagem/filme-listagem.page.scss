@@ -7,13 +7,21 @@ app-filme-filtro{
 ion-row {
     margin-top: 0 !important;
 }
-ion-col {
-    padding: 0;
-}
+
 ion-card {
-    width: 100%;    
+    width: 100%;
+    box-shadow: none; 
+}
+
+ion-item {
+    border-color: transparent;
+    box-shadow: none;
+    border-style: unset;
 }
 ion-card-content {
     height: 100%;
     padding: 0;
+}
+img {
+    border-radius: 5px;
 }

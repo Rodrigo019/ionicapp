@@ -19,7 +19,7 @@
               {{cast.name}}
             </ion-card-header>
             <ion-card-content>
-              <img [src]="cast.profile_path">
+              <img [lazyLoad]="Imagens" [src]="cast.profile_path">
             </ion-card-content>
             <ion-card-footer>
               {{cast.character}}

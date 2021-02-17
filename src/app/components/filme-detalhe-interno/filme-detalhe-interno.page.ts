@@ -13,8 +13,8 @@ export class FilmeDetalheInternoPage implements OnInit {
   @Input() Id: number = null;
   private Filme: Filme = new Filme();
   private FilmesRelacionados: Filme[] = [];
-  private QtdLinhasGenero: number = null;
   private BackgroundImage: string;
+  private TextoExibir: string;
 
   constructor(
     private filmeService: FilmeService
@@ -36,7 +36,7 @@ export class FilmeDetalheInternoPage implements OnInit {
           this.Filme.release_date = `${this.Filme.release_date.split('-')[2]}/${this.Filme.release_date.split('-')[1]}/${this.Filme.release_date.split('-')[0]}`
           this.Filme.poster_path = `https://www.themoviedb.org/t/p/original${this.Filme.poster_path}`;
           this.BackgroundImage = this.Filme.poster_path;
-          this.QtdLinhasGenero = (this.Filme.genres.length / 3) <= 1 ? 1 : 2;
+          this.limitaTexto(this.Filme.overview);
       },
         erro => {
           console.log(erro);
@@ -49,5 +49,22 @@ export class FilmeDetalheInternoPage implements OnInit {
     return `url(${this.BackgroundImage})`
   }
 
+  getVoteAvarageColor()
+  {
+    if (this.Filme.vote_average >= 7)
+      return 'success';
+    else if (this.Filme.vote_average > 5 && this.Filme.vote_average < 7)
+      return 'warning';
+    else if (this.Filme.vote_average < 5)
+      return 'danger';
+  }
+
+  limitaTexto(texto: string)
+  {    
+    if (texto.length > 200)
+      this.TextoExibir = `${texto.substring(0, 200)}...`;
+    else
+      this.TextoExibir = texto;
+  }
 
 }

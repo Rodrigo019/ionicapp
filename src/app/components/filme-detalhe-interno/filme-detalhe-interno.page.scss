@@ -1,9 +1,14 @@
-ion-card {
+ion-card.container {
     background-color: transparent;
     font-family: 'PT Sans', sans-serif;
     width: 100%;
     margin: 0;
     z-index: 1;
+    box-shadow: none;
+}
+
+ion-card.internal-container {
+    font-size: 0.5rem;
 }
 
 ion-card-title {
@@ -19,6 +24,7 @@ p {
     text-align: justify;
     text-justify: distribute;
     margin: 10px;
+    height: 100px;
 }
 
 .bg-fundo {
@@ -34,3 +40,67 @@ p {
     z-index: 0;
     width: 100%;
 }
+
+ion-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+    border: 1px solid rgb(100, 98, 98);
+    border-radius: 50%;
+    text-align: center;
+    font-size: 1.3rem;
+    padding-top: 12px;
+    z-index: 2;
+}
+
+app-filme-reviews {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 1.3rem;
+    padding-top: 12px;
+    z-index: 2;
+    padding: 0; 
+}
+
+app-filme-creditos{
+    position: absolute;
+    top: 60px;
+    left: 15px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 1.3rem;
+    padding-top: 12px;
+    z-index: 2;
+    padding: 0;
+}
+
+app-filme-onde-assistir {
+    position: absolute;
+    top: 105px;
+    left: 15px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 1.3rem;
+    padding-top: 12px;
+    z-index: 2;
+    padding: 0;
+}
+
+.container {
+    border: 2px;
+}
+
+ion-slides {
+    height: 100%;
+  }
