@@ -13,7 +13,6 @@ export class ModalFilmeCreditosPage implements OnInit {
 
   private RetornoCreditos: RetornoCreditos = null;
   private MatrizDeCast: any[] = [];
-  private Imagens: string [] = [];
 
   constructor(
     protected filmeService: FilmeService,
@@ -28,8 +27,7 @@ export class ModalFilmeCreditosPage implements OnInit {
 
         this.RetornoCreditos = retorno;
         this.RetornoCreditos.cast = this.RetornoCreditos.cast.filter(x => x.profile_path !== null);
-        this.RetornoCreditos.cast.forEach(x => x.profile_path = `https://www.themoviedb.org/t/p/original${x.profile_path}`);        
-        this.RetornoCreditos.cast.forEach(x => this.Imagens.push(x.profile_path));
+        this.RetornoCreditos.cast.forEach(x => x.profile_path = `https://www.themoviedb.org/t/p/w500${x.profile_path}`);
         let cont = 0;
         let castLinha: Cast[] = [];
         

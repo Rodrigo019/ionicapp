@@ -4,7 +4,7 @@
       <ion-slide *ngFor="let slide of MatrizDeFilmes">
         <ion-row>
           <ion-col size="3" *ngFor="let filme of slide">
-            <img [lazyLoad]="Imagens" [src]="filme.poster_path">
+            <img [src]="filme.poster_path" onerror="this.onerror=null; this.src='assets/default-image.jpg'">
           </ion-col>
         </ion-row>
       </ion-slide>      

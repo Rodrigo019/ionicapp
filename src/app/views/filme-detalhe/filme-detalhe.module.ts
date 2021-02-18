@@ -1,3 +1,4 @@
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { FilmeDetalheInternoPageModule } from './../../components/filme-detalhe-interno/filme-detalhe-interno.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -15,7 +16,8 @@ import { FilmeDetalhePage } from './filme-detalhe.page';
     FormsModule,
     IonicModule,
     FilmeDetalhePageRoutingModule,
-    FilmeDetalheInternoPageModule
+    FilmeDetalheInternoPageModule,
+    LazyLoadImageModule
   ],
   declarations: [FilmeDetalhePage]
 })

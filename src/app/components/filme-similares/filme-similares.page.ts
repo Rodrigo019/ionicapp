@@ -12,10 +12,8 @@ import { toBase64String } from '@angular/compiler/src/output/source_map';
 export class FilmeSimilaresPage implements OnInit, OnChanges {
 
   @Input() FilmeId: number;
-  private Imagens: string [] = [];
   private MatrizDeFilmes: any[] = [];
   private Index: number = 1;
-  private TotalPaginas: number;
 
   private slideOpts = {
     initialSlide: 0,
@@ -38,15 +36,13 @@ export class FilmeSimilaresPage implements OnInit, OnChanges {
   {
     this.filmeService.BuscarFilmesSimilares(this.FilmeId, true, this.Index).subscribe(
       retorno => {
-        this.TotalPaginas = retorno.total_pages;
       if (retorno)
       {
         let cont = 0;
         let filmesLinha: Filme[] = [];
         
-        retorno.results.forEach(x => {
-          x.poster_path = `https://www.themoviedb.org/t/p/original${x.poster_path}`;
-          this.Imagens.push(x.poster_path);
+        retorno.results.filter(x => x.poster_path !== null).forEach(x => {
+          x.poster_path = `https://www.themoviedb.org/t/p/w500${x.poster_path}`;
           if (cont < 4)
           {            
             filmesLinha.push(x);
@@ -60,7 +56,7 @@ export class FilmeSimilaresPage implements OnInit, OnChanges {
           }
         });
         this.Index++;
-        if (this.Index <= this.TotalPaginas)
+        if (this.Index <= 5)
           this.buscarFilmes();
       }
     },
