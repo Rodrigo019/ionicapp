@@ -11,9 +11,9 @@ export class FilmeListagemPage implements OnInit {
 
   @Input() NomeDoFilme: string = null;  
 
-  private FilmesMemoria: Filme[] = [];
-  private Filmes: Filme[] = []; 
-  private MatrizDeFilmes: any[] = []; 
+  protected FilmesMemoria: Filme[] = [];
+  protected MatrizDeFilmes: any[] = []; 
+  private Filmes: Filme[] = [];   
   private Index: number = 1;
 
   constructor(

@@ -19,7 +19,6 @@ import { FilmeListagemPage } from './filme-listagem.page';
     FilmeFiltroPageModule,
     LazyLoadImageModule
   ],
-  providers:[{ provide: LAZYLOAD_IMAGE_HOOKS, useClass: ScrollHooks }],
   exports: [
     FilmeListagemPage
   ],

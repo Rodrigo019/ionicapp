@@ -1,3 +1,4 @@
+import { FilmeBemAvaliadosPageModule } from './../components/filme-bem-avaliados/filme-bem-avaliados.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -13,7 +14,8 @@ import { FolderPage } from './folder.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    FolderPageRoutingModule
+    FolderPageRoutingModule,
+    FilmeBemAvaliadosPageModule
   ],
   declarations: [FolderPage]
 })

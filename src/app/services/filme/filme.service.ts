@@ -18,6 +18,8 @@ export class FilmeService extends BaseRequestService {
   private readonly urlBuscaReviews: string = 'https://api.themoviedb.org/3/movie/filmeId/reviews';
   private readonly urlBuscaCreditos: string = 'https://api.themoviedb.org/3/movie/filmeId/credits';
   private readonly urlBuscaSimilares: string = 'https://api.themoviedb.org/3/movie/filmeId/similar';
+  private readonly urlBuscaFilmesBemAvaliados: string = 'https://api.themoviedb.org/3/movie/top_rated';
+  private readonly urlBuscaFilmesNoCinema: string = 'https://api.themoviedb.org/3/movie/now_playing';
 
   constructor(protected client: HttpClient) 
   {
@@ -62,5 +64,15 @@ export class FilmeService extends BaseRequestService {
     url = url.replace('filmeId', filmeId.toString());
 
     return super.Get<RetornoFilmes>(url, retornoEmPtBr, pagina);
+  }
+
+  public BuscarFilmesBemAvaliados(retornoEmPtBr?: boolean, pagina?: number) : Observable<RetornoFilmes> {
+    let url = this.urlBuscaFilmesBemAvaliados;
+    return super.Get<RetornoFilmes>(url, retornoEmPtBr, pagina);
+  }
+
+  public BuscarFilmesNoCinema(retornoEmPtBr?: boolean){
+    let url = this.urlBuscaFilmesNoCinema;
+    return super.Get<RetornoFilmes>(url, retornoEmPtBr);
   }
 }

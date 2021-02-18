@@ -1,4 +1,3 @@
-import { PopoverComponent } from './components/popover/popover.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -12,10 +11,10 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { LazyLoadImageDirective, LazyLoadImageModule } from 'ng-lazyload-image';
 
 @NgModule({
-  declarations: [AppComponent,PopoverComponent],
+  declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, InAppBrowser, LazyLoadImageModule],
-  bootstrap: [AppComponent,PopoverComponent],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

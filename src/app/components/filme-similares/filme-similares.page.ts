@@ -29,7 +29,6 @@ export class FilmeSimilaresPage implements OnInit, OnChanges {
   ngOnChanges(): void {
     if (this.FilmeId !== undefined)
       this.buscarFilmes();
-    console.log(this.MatrizDeFilmes)
   }
 
   buscarFilmes()

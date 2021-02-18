@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { PopoverComponent } from './popover.component';
+import { FilmeBemAvaliadosPage } from './filme-bem-avaliados.page';
 
-describe('PopoverComponent', () => {
-  let component: PopoverComponent;
-  let fixture: ComponentFixture<PopoverComponent>;
+describe('FilmeBemAvaliadosPage', () => {
+  let component: FilmeBemAvaliadosPage;
+  let fixture: ComponentFixture<FilmeBemAvaliadosPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PopoverComponent ],
+      declarations: [ FilmeBemAvaliadosPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PopoverComponent);
+    fixture = TestBed.createComponent(FilmeBemAvaliadosPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

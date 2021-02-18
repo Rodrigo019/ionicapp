@@ -3,19 +3,21 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ folder }}</ion-title>
+    <ion-title>Popcorn Bucket</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{ folder }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-card class="container">
+  <ion-card-content>
+    
+    <ion-row>
+      <ion-col size="8" offset="2">
+        <ion-img [src]="ImagemPrincipal"></ion-img>
+      </ion-col>
+    </ion-row>
 
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+    <app-filme-bem-avaliados></app-filme-bem-avaliados>
+    <app-filme-bem-avaliados></app-filme-bem-avaliados>
+  </ion-card-content>
+</ion-card>
+<div class="bg-fundo" [style.backgroundImage]="getbackgroundImage()"></div>

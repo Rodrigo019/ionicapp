@@ -1,8 +1,6 @@
 import { Filme } from 'src/app/models/filme/filme';
 import { ModalFiltroFilmePage } from './../modal-filtro-filme/modal-filtro-filme.page';
 import { FilmeFiltro } from './../../models/filme/filmefiltro';
-import { PopoverComponent } from './../popover/popover.component';
-import { FilmeService } from './../../services/filme/filme.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core'

@@ -1,0 +1,29 @@
+.container {
+    top: 0;
+    margin-top: 5px;
+}
+.title {
+    border-left: 10px solid teal;
+    margin-left: 5px;
+    padding-left: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+ion-slides {
+    height: 200px;
+}
+
+ion-badge {
+    position: absolute;
+    top: 155px;
+    right: 40%;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgb(100, 98, 98);
+    border-radius: 50%;
+    text-align: center;
+    font-size: .8rem;
+    padding-top: 9px;
+    z-index: 2;
+}
