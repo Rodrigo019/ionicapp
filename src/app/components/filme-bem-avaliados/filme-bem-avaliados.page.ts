@@ -48,7 +48,6 @@ export class FilmeBemAvaliadosPage implements OnInit {
           this.ContFilmes++;
           if (this.ContFilmes <= 2)
             this.carregarFilmesBemAvaliados();
-          console.log(this.MatrizDeFilmesBemAvaliados);
         }
       },
       erro => console.log(erro)

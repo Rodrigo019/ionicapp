@@ -15,6 +15,7 @@ import { SerieListagemPage } from './serie-listagem.page';
     IonicModule,
     SerieListagemPageRoutingModule
   ],
+  exports: [SerieListagemPage],
   declarations: [SerieListagemPage]
 })
 export class SerieListagemPageModule {}

@@ -1,0 +1,27 @@
+app-filme-filtro{
+    float: right;
+    margin-right: 15px;
+    margin-top: 5px;
+    font-size: 1.3rem;
+}
+ion-row {
+    margin-top: 0 !important;
+}
+
+ion-card {
+    width: 100%;
+    box-shadow: none; 
+}
+
+ion-item {
+    border-color: transparent;
+    box-shadow: none;
+    border-style: unset;
+}
+ion-card-content {
+    height: 100%;
+    padding: 0;
+}
+img {
+    border-radius: 5px;
+}

@@ -1,3 +1,4 @@
+import { SerieNoArPageModule } from './../components/serie-no-ar/serie-no-ar.module';
 import { FilmeBemAvaliadosPageModule } from './../components/filme-bem-avaliados/filme-bem-avaliados.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -15,7 +16,8 @@ import { FolderPage } from './folder.page';
     FormsModule,
     IonicModule,
     FolderPageRoutingModule,
-    FilmeBemAvaliadosPageModule
+    FilmeBemAvaliadosPageModule,
+    SerieNoArPageModule
   ],
   exports: [FolderPage],
   declarations: [FolderPage]

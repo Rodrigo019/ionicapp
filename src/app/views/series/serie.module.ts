@@ -1,3 +1,4 @@
+import { SerieListagemPageModule } from './../../components/serie-listagem/serie-listagem.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -13,7 +14,8 @@ import { SeriePage } from './serie.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    SeriePageRoutingModule
+    SeriePageRoutingModule,
+    SerieListagemPageModule
   ],
   declarations: [SeriePage]
 })

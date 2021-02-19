@@ -22,7 +22,6 @@ const routes: Routes = [
     path: 'filmes/filme-detalhe/:id',
     loadChildren: () => import('./views/filme-detalhe/filme-detalhe.module').then( m => m.FilmeDetalhePageModule)
   }
-
 ];
 
 @NgModule({

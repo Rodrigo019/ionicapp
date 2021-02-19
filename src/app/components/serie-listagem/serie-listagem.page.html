@@ -1,9 +1,30 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>serie-listagem</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>  
+    <ion-title>Séries</ion-title>
+    <!-- <app-filme-filtro (FilmesEmmiter)="filtrar($event)" [Filmes]="FilmesMemoria"></app-filme-filtro>  -->
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-list lines="none">
+    <ion-item *ngFor="let linha of MatrizDeSeries">
+      <ion-row>
+        <ion-col size="4" *ngFor="let serie of linha">
+          <ion-card-content>
+            <img [src]="serie.poster_path">
+          </ion-card-content>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
 
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Buscando mais filmes...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
