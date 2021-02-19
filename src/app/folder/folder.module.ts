@@ -17,6 +17,7 @@ import { FolderPage } from './folder.page';
     FolderPageRoutingModule,
     FilmeBemAvaliadosPageModule
   ],
+  exports: [FolderPage],
   declarations: [FolderPage]
 })
 export class FolderPageModule {}

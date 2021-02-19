@@ -51,7 +51,10 @@
     <ion-card-content>
       <ion-list>
         <ion-item *ngFor="let provider of WatchProviders.flatrate">
-          <img [src]="provider.logo_path">
+          <a [href]="provider.url">
+            <img [src]="provider.logo_path" (click)="openWithCordovaBrowser(provider.url)">
+          </a>
+
           <ion-label>{{ provider.provider_name }}</ion-label>
         </ion-item>
       </ion-list>  

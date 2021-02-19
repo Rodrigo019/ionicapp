@@ -25,6 +25,6 @@
 
 <app-filme-reviews [FilmeId]="Filme.id"></app-filme-reviews>
 <app-filme-creditos [FilmeId]="Filme.id"></app-filme-creditos>
-<app-filme-onde-assistir [FilmeId]="Filme.id" [FilmeNome]="Filme.title"></app-filme-onde-assistir>
+<app-filme-onde-assistir [FilmeId]="Filme.id" [FilmeNome]="Filme.title" [HomePage]="Filme.homepage"></app-filme-onde-assistir>
 <ion-badge [color]="getVoteAvarageColor()">{{ Filme.vote_average }}</ion-badge>
 <div class="bg-fundo" [style.backgroundImage]="getbackgroundImage()"></div>

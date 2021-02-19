@@ -3,8 +3,14 @@ ion-card.container {
   font-family: 'PT Sans', sans-serif;
   width: 100%;
   margin: 0;
+  padding: 0;
   z-index: 1;
   box-shadow: none;
+}
+
+ion-card-content {
+  padding: 0;
+  width: 100%;
 }
 
 ion-menu-button {
@@ -19,12 +25,20 @@ ion-menu-button {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 400px;
+  bottom: 70%;
   opacity: 0.4;
   z-index: 0;
   width: 100%;
 }
 
+ion-row {
+  height: 250px;
+}
+
+ion-col {
+  height: 100%;
+}
+
 ion-img {
-  height: 200px;
+  height: 100%;
 }

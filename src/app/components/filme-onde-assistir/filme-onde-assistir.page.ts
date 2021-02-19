@@ -11,6 +11,7 @@ export class FilmeOndeAssistirPage implements OnInit {
 
   @Input() FilmeId: number;
   @Input() FilmeNome: string;
+  @Input() HomePage: string;
 
   constructor(
     protected modalController: ModalController
@@ -22,7 +23,11 @@ export class FilmeOndeAssistirPage implements OnInit {
   async presentModal(event) {
     let modal = this.modalController.create({
       component: ModalOndeAssistirFilmePage,
-      componentProps: { 'FilmeId': this.FilmeId, 'FilmeNome': this.FilmeNome }
+      componentProps: { 
+        'FilmeId': this.FilmeId, 
+        'FilmeNome': this.FilmeNome, 
+        'HomePage': this.HomePage 
+      }
     });
 
     return (await modal).present();

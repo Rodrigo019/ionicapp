@@ -46,6 +46,7 @@ export class ModalOndeAssistirFilmePage implements OnInit {
   ngOnInit() {
     let filmeId = this.navParams.data.FilmeId;
     this.FilmeNome = this.navParams.data.FilmeNome;
+
     this.filmeService.BuscarWatchProviders(filmeId).subscribe(
     (retorno: any) => {
       this.WatchProviders = retorno.results.BR;
@@ -75,8 +76,7 @@ export class ModalOndeAssistirFilmePage implements OnInit {
           this.WatchProviders.flatrate.forEach(x => 
             {
               if (x.provider_id === 8)
-              x.url = this.UrlNetflix;
-
+              x.url = this.navParams.data.HomePage;
               x.logo_path = `https://www.themoviedb.org/t/p/original${x.logo_path}`
             });
       }

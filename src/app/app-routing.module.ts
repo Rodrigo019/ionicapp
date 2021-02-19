@@ -4,8 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
-    pathMatch: 'full'
+    loadChildren: () => import('./views/inicio/inicio.module').then( m => m.InicioPageModule)
   },
   {
     path: 'folder/:id',
@@ -23,6 +22,7 @@ const routes: Routes = [
     path: 'filmes/filme-detalhe/:id',
     loadChildren: () => import('./views/filme-detalhe/filme-detalhe.module').then( m => m.FilmeDetalhePageModule)
   }
+
 ];
 
 @NgModule({
