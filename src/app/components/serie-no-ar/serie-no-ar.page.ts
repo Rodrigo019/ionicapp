@@ -23,8 +23,6 @@ export class SerieNoArPage implements OnInit {
 
   carregarSeriesNoAr()
   { 
-    console.log(this.ContSeries);
-    console.log(this.MatrizDeSeriesNoAr);
     this.serieService.BuscarSeriesNoAr(true, this.ContSeries).subscribe(
       retorno => {
         if (retorno)

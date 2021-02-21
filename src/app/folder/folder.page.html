@@ -7,8 +7,24 @@
       </ion-col>
     </ion-row>
 
-    <app-filme-bem-avaliados></app-filme-bem-avaliados>
-    <app-serie-no-ar></app-serie-no-ar>
+    <app-listagem-horizontal
+      Titulo="Filmes bem avaliados"
+      UrlBusca="'/movie/top_rated'"
+      [QuantidadePorSlide]="6"
+      [QuantidadeDeBuscas]="2" 
+      [SizeColumn]="2"
+      (Clicou)="clicouFilme($event)">
+    </app-listagem-horizontal>    
+    
+    <app-listagem-horizontal
+      Titulo="Séries no Ar"
+      UrlBusca="'/tv/on_the_air'"
+      [QuantidadePorSlide]="6"
+      [QuantidadeDeBuscas]="2" 
+      [SizeColumn]="2"
+      (Clicou)="clicouSerie($event)">
+    </app-listagem-horizontal>
+
   </ion-card-content>
 </ion-card>
 <div class="bg-fundo" [style.backgroundImage]="getbackgroundImage()"></div>

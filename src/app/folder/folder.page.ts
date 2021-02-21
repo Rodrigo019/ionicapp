@@ -36,4 +36,14 @@ export class FolderPage implements OnInit {
   {
     return `url(${this.ImagemFundoPrincipal})`;
   }
+
+  clicouSerie($event)
+  {
+    console.log($event);
+  }
+
+  clicouFilme($event)
+  {
+    console.log($event);
+  }
 }

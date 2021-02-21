@@ -1,3 +1,4 @@
+import { ListagemHorizontalPageModule } from './../listagem-horizontal/listagem-horizontal.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -10,7 +11,8 @@ import { SerieNoArPage } from './serie-no-ar.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    SerieNoArPageRoutingModule
+    SerieNoArPageRoutingModule,
+    ListagemHorizontalPageModule
   ],
   exports: [SerieNoArPage],
   declarations: [SerieNoArPage]

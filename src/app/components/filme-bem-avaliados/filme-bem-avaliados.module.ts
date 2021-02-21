@@ -1,3 +1,4 @@
+import { ListagemHorizontalPageModule } from './../listagem-horizontal/listagem-horizontal.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -13,7 +14,8 @@ import { FilmeBemAvaliadosPage } from './filme-bem-avaliados.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    FilmeBemAvaliadosPageRoutingModule
+    FilmeBemAvaliadosPageRoutingModule,
+    ListagemHorizontalPageModule
   ],
   exports: [FilmeBemAvaliadosPage],
   declarations: [FilmeBemAvaliadosPage]

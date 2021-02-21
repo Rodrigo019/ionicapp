@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="title">Filmes bem avaliados</div>
   <ion-slides scrollX="true" [options]="slideOpts">
     <ion-slide *ngFor="let slide of MatrizDeFilmesBemAvaliados">
@@ -10,4 +10,13 @@
       </ion-row>
     </ion-slide>      
   </ion-slides>
-</div>
+</div> -->
+
+<app-listagem-horizontal
+  Titulo="Séries no Ar"
+  UrlBusca="'/movie/top_rated'" 
+  [SlideOptions]="slideOpts"
+  [QuantidadePorSlide]="4"
+  [QuantidadeDeBuscas]="2" 
+  [SizeColumn]="3">
+</app-listagem-horizontal>

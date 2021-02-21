@@ -11,7 +11,7 @@ export class BaseRequestService {
 
   constructor(protected client: HttpClient) { }
 
-  protected Get<T>(url: string, retornoEmPtBr?: boolean, pagina?: number) : Observable<T> {
+  public Get<T>(url: string, retornoEmPtBr?: boolean, pagina?: number) : Observable<T> {
 
     url = `${url}?api_key=${this.apiKey}`;
 
