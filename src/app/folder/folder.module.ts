@@ -17,8 +17,6 @@ import { FolderPage } from './folder.page';
     FormsModule,
     IonicModule,
     FolderPageRoutingModule,
-    FilmeBemAvaliadosPageModule,
-    SerieNoArPageModule,
     ListagemHorizontalPageModule
   ],
   exports: [FolderPage],

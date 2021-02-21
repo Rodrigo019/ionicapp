@@ -24,7 +24,6 @@ export class FolderPage implements OnInit {
     this.filmeService.BuscarFilmesNoCinema(true).subscribe(
       retorno => {
         let primeiro = retorno.results.shift();
-        // this.ImagemFundoPrincipal = `https://www.themoviedb.org/t/p/w500${primeiro.backdrop_path}`;
         this.ImagemFundoPrincipal = `https://www.themoviedb.org/t/p/w500${primeiro.poster_path}`;
         this.ImagemPrincipal = `https://www.themoviedb.org/t/p/w500${primeiro.poster_path}`;
       },
