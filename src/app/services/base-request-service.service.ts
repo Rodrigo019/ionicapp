@@ -13,7 +13,14 @@ export class BaseRequestService {
 
   public Get<T>(url: string, retornoEmPtBr?: boolean, pagina?: number) : Observable<T> {
 
-    url = `${url}?api_key=${this.apiKey}`;
+    if (url.includes('?query='))
+    {
+      url = `${url}&api_key=${this.apiKey}`;
+    }
+    else
+    {
+      url = `${url}?api_key=${this.apiKey}`;
+    }
 
     if (retornoEmPtBr)
       url = `${url}&language=pt-BR`;

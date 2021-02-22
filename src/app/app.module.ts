@@ -1,3 +1,4 @@
+import { Keyboard } from '@ionic-native/keyboard/ngx';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -14,7 +15,7 @@ import { LazyLoadImageDirective, LazyLoadImageModule } from 'ng-lazyload-image';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, InAppBrowser, LazyLoadImageModule],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, InAppBrowser, LazyLoadImageModule, Keyboard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

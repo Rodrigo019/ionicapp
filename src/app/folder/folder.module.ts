@@ -1,6 +1,4 @@
 import { ListagemHorizontalPageModule } from './../components/listagem-horizontal/listagem-horizontal.module';
-import { SerieNoArPageModule } from './../components/serie-no-ar/serie-no-ar.module';
-import { FilmeBemAvaliadosPageModule } from './../components/filme-bem-avaliados/filme-bem-avaliados.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';

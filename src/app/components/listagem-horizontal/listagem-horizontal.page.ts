@@ -13,6 +13,7 @@ export class ListagemHorizontalPage implements OnInit, OnChanges {
   @Input() UrlBusca: string;
   @Input() QuantidadePorSlide: number;
   @Input() QuantidadeDeBuscas: number;
+  @Input() ExibeNota: boolean = false;
   @Output() Clicou = new EventEmitter();
   
   public SlideOpts = { initialSlide: 0, speed: 400 };

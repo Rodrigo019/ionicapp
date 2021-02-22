@@ -1,3 +1,5 @@
+import { FilmeDetalhePageModule } from './../filme-detalhe/filme-detalhe.module';
+import { FilmeFiltroPageModule } from './../filme-filtro/filme-filtro.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -13,6 +15,8 @@ import { FilmeListagemPageModule } from 'src/app/components/filme-listagem/filme
     IonicModule,
     FilmePageRoutingModule,
     FilmeListagemPageModule,
+    FilmeFiltroPageModule,
+    FilmeDetalhePageModule
   ],
   declarations: [FilmePage]
 })

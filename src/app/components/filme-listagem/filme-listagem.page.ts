@@ -11,10 +11,10 @@ export class FilmeListagemPage implements OnInit {
 
   @Input() NomeDoFilme: string = null;  
 
-  protected FilmesMemoria: Filme[] = [];
-  protected MatrizDeFilmes: any[] = []; 
-  private Filmes: Filme[] = [];   
-  private Index: number = 1;
+  public FilmesMemoria: Filme[] = [];
+  public MatrizDeFilmes: any[] = []; 
+  public Filmes: Filme[] = [];   
+  public Index: number = 1;
 
   constructor(
     protected filmeService: FilmeService
@@ -33,12 +33,10 @@ export class FilmeListagemPage implements OnInit {
         
         retorno.results.forEach(x => {
           x.poster_path = `https://www.themoviedb.org/t/p/w500${x.poster_path}`;
-          if (cont < 3)
-          {            
-            filmesLinha.push(x);
-            cont++;
-          }
-          else
+          filmesLinha.push(x);
+          cont++;
+
+          if (cont == 3)
           {
             this.MatrizDeFilmes.push(filmesLinha);
             filmesLinha = [];
@@ -65,13 +63,11 @@ export class FilmeListagemPage implements OnInit {
           let filmesLinha: Filme[] = [];
 
           retorno.results.forEach(x => {
-            x.poster_path = `https://www.themoviedb.org/t/p/w500${x.poster_path}`;
-            if (cont < 3)
-            {            
-              filmesLinha.push(x);
-              cont++;
-            }
-            else
+            x.poster_path = `https://www.themoviedb.org/t/p/w500${x.poster_path}`;       
+            filmesLinha.push(x);
+            cont++;
+
+            if (cont == 3)
             {
               this.MatrizDeFilmes.push(filmesLinha);
               filmesLinha = [];

@@ -18,7 +18,14 @@
       </ion-col>
     </ion-row>
   
-    <app-filme-similares [FilmeId]="Filme.id"></app-filme-similares>
+  <app-listagem-horizontal
+    Titulo="Filmes similares"
+    [UrlBusca]="FilmesSimilaresUrl"
+    [QuantidadePorSlide]="4"
+    [QuantidadeDeBuscas]="5" 
+    [SizeColumn]="3"
+    (Clicou)="clicouFilme($event)">
+  </app-listagem-horizontal> 
 
   </ion-card-content>
 </ion-card>

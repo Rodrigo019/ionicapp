@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilmeDetalhePage implements OnInit {
 
-  private Id: number = 0;
+  public Id: number = 0;
 
   constructor(
     private router: ActivatedRoute,

@@ -2,9 +2,11 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
+      <ion-title>Filmes</ion-title>
+      <ion-button style="float: right;" [routerLink]="['filtro']">
+        <ion-icon name="search"></ion-icon>
+      </ion-button>
     </ion-buttons>  
-    <ion-title>Filmes</ion-title>
-    <!-- <app-filme-filtro (FilmesEmmiter)="filtrar($event)" [Filmes]="FilmesMemoria"></app-filme-filtro>  -->
   </ion-toolbar>
 </ion-header>
 
@@ -14,7 +16,7 @@
       <ion-row>
         <ion-col size="4" *ngFor="let filme of linha">
           <ion-card-content>
-            <img [src]="filme.poster_path" [routerLink]="['filme-detalhe/' + filme.id]">
+            <img [src]="filme.poster_path" [routerLink]="['detalhe/' + filme.id]">
           </ion-card-content>
         </ion-col>
       </ion-row>

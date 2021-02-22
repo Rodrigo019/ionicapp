@@ -18,10 +18,8 @@
     <ion-card-content>
       <ion-list>
         <ion-item *ngFor="let provider of WatchProviders.rent">
-          <!-- <a [href]="provider.url"> -->
             <img *ngIf="provider.url" [src]="provider.logo_path" (click)="openWithInAppBrowser(provider.url)">
             <img *ngIf="provider.url === undefined" [src]="provider.logo_path">
-          <!-- </a> -->
           <ion-label>{{ provider.provider_name }}</ion-label>
         </ion-item>
       </ion-list>  
@@ -35,10 +33,8 @@
     <ion-card-content>
       <ion-list>
         <ion-item *ngFor="let provider of WatchProviders.buy">
-          <!-- <a [href]="provider.url" > -->
             <img [src]="provider.logo_path" (click)="openWithInAppBrowser(provider.url)">
-          <!-- </a> -->
-          <ion-label>{{ provider.provider_name }}</ion-label>
+            <ion-label>{{ provider.provider_name }}</ion-label>
         </ion-item>
       </ion-list>  
     </ion-card-content>
@@ -51,10 +47,12 @@
     <ion-card-content>
       <ion-list>
         <ion-item *ngFor="let provider of WatchProviders.flatrate">
-          <a [href]="provider.url">
-            <img [src]="provider.logo_path" (click)="openWithCordovaBrowser(provider.url)">
+          <a *ngIf="provider.url !== undefined" [href]="provider.url">
+            <img [src]="provider.logo_path">
           </a>
-
+          <div *ngIf="provider.url === undefined" (click)="presentToast()">
+            <img [src]="provider.logo_path">
+          </div>
           <ion-label>{{ provider.provider_name }}</ion-label>
         </ion-item>
       </ion-list>  

@@ -1,7 +1,7 @@
 import { FilmeService } from './../../services/filme/filme.service';
 import { Filme } from 'src/app/models/filme/filme';
 import { Component, Input, OnInit } from '@angular/core';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-filme-detalhe-interno',
@@ -11,13 +11,15 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 export class FilmeDetalheInternoPage implements OnInit {
 
   @Input() Id: number = null;
-  private Filme: Filme = new Filme();
-  private FilmesRelacionados: Filme[] = [];
-  private BackgroundImage: string;
-  private TextoExibir: string;
+  public Filme: Filme = new Filme();
+  public FilmesRelacionados: Filme[] = [];
+  public BackgroundImage: string;
+  public TextoExibir: string;
+  public FilmesSimilaresUrl: string;
 
   constructor(
-    private filmeService: FilmeService
+    private filmeService: FilmeService,
+    private router: Router
   ) {
     this.carregaFilme();
   }
@@ -30,6 +32,7 @@ export class FilmeDetalheInternoPage implements OnInit {
   {
     if (this.Id)
     {
+      this.FilmesSimilaresUrl = '/movie/filmeId/similar'.replace('filmeId', this.Id.toString());
       this.filmeService.BuscarFilmeEspecifico(this.Id, true).subscribe(
         retorno => {
           this.Filme = retorno;
@@ -67,4 +70,8 @@ export class FilmeDetalheInternoPage implements OnInit {
       this.TextoExibir = texto;
   }
 
+  clicouFilme($event)
+  {
+    this.router.navigate(['/filmes/detalhe/' + $event.id])
+  }
 }

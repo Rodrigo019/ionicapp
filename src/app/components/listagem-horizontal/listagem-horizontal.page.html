@@ -5,7 +5,7 @@
       <ion-row>
         <ion-col [size]="SizeColumn" *ngFor="let item of slide">
           <img [src]="item.poster_path" (click)="clicado(item)">
-          <ion-badge [color]="getVoteAvarageColor(item.vote_average)">{{ item.vote_average }}</ion-badge>
+          <ion-badge *ngIf="ExibeNota" [color]="getVoteAvarageColor(item.vote_average)">{{ item.vote_average }}</ion-badge>
         </ion-col>
       </ion-row>
     </ion-slide>      

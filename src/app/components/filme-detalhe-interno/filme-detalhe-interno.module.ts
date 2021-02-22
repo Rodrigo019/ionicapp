@@ -1,4 +1,4 @@
-import { FilmeSimilaresPageModule } from './../filme-similares/filme-similares.module';
+import { ListagemHorizontalPageModule } from './../listagem-horizontal/listagem-horizontal.module';
 import { FilmeElencoPrincipalPageModule } from './../filme-elenco-principal/filme-elenco-principal.module';
 import { FilmeCreditosPageModule } from './../filme-creditos/filme-creditos.module';
 import { FilmeReviewsPageModule } from './../filme-reviews/filme-reviews.module';
@@ -23,7 +23,7 @@ import { FilmeDetalheInternoPage } from './filme-detalhe-interno.page';
     FilmeReviewsPageModule,
     FilmeCreditosPageModule,
     FilmeElencoPrincipalPageModule,
-    FilmeSimilaresPageModule
+    ListagemHorizontalPageModule
   ],
   exports: [
     FilmeDetalheInternoPage

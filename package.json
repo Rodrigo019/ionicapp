@@ -22,6 +22,7 @@
     "@capacitor/core": "2.4.6",
     "@ionic-native/core": "^5.31.1",
     "@ionic-native/in-app-browser": "^5.31.1",
+    "@ionic-native/keyboard": "^5.31.1",
     "@ionic/angular": "^5.5.2",
     "bootstrap": "^4.6.0",
     "ionic": "^5.4.16",

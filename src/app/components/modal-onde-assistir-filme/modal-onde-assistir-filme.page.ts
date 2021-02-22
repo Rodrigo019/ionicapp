@@ -1,7 +1,7 @@
 import { FilmeService } from './../../services/filme/filme.service';
 import { RetornoWatchProviders } from './../../models/filme/retornowatchproviders';
 import { Component, OnInit } from '@angular/core';
-import { ModalController, NavParams } from '@ionic/angular';
+import { ModalController, NavParams, ToastController } from '@ionic/angular';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
@@ -11,11 +11,11 @@ import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/
 })
 export class ModalOndeAssistirFilmePage implements OnInit {
 
-  private UrlGooglePlay: string = 'https://play.google.com/store/search?c=movies&q=';
-  private UrlMicrosoftStore: string = 'https://www.microsoft.com/pt-br/search/shop/Movies?q=';
-  private UrlNetflix: string = 'http://www.netflix.com.br';
-  private WatchProviders: RetornoWatchProviders = null;
-  private FilmeNome: string = null;
+  public UrlGooglePlay: string = 'https://play.google.com/store/search?c=movies&q=';
+  public UrlMicrosoftStore: string = 'https://www.microsoft.com/pt-br/search/shop/Movies?q=';
+  public UrlNetflix: string = 'http://www.netflix.com.br';
+  public WatchProviders: RetornoWatchProviders = null;
+  public FilmeNome: string = null;
 
   options : InAppBrowserOptions = {
     location : 'yes',//Or 'no' 
@@ -35,12 +35,12 @@ export class ModalOndeAssistirFilmePage implements OnInit {
     fullscreen : 'yes',//Windows only    
 };
 
-  constructor(
-    
-    protected filmeService: FilmeService,
-    protected navParams: NavParams,
-    protected modalCtrl: ModalController,
-    private theInAppBrowser: InAppBrowser
+  constructor(    
+    public filmeService: FilmeService,
+    public navParams: NavParams,
+    public modalCtrl: ModalController,
+    public theInAppBrowser: InAppBrowser,
+    public toastController: ToastController
   ) { }
 
   ngOnInit() {
@@ -55,9 +55,9 @@ export class ModalOndeAssistirFilmePage implements OnInit {
         if (this.WatchProviders.rent)
         this.WatchProviders.rent.forEach(
           x => {
-            if (x.provider_id === 3)
+            if (x.provider_id === 3) //Google Play
               x.url = this.UrlGooglePlay+this.FilmeNome;
-            else if (x.provider_id === 68)
+            else if (x.provider_id === 68) //Microsoft Store
               x.url = this.UrlMicrosoftStore+this.FilmeNome;
 
             x.logo_path = `https://www.themoviedb.org/t/p/original${x.logo_path}`
@@ -65,9 +65,9 @@ export class ModalOndeAssistirFilmePage implements OnInit {
         if (this.WatchProviders.buy)
           this.WatchProviders.buy.forEach(x => 
             {
-              if (x.provider_id === 3)
+              if (x.provider_id === 3) //Google Play
                 x.url = this.UrlGooglePlay+this.FilmeNome;
-              else if (x.provider_id === 68)
+              else if (x.provider_id === 68) //Microsoft Store
                 x.url = this.UrlMicrosoftStore+this.FilmeNome;
 
               x.logo_path = `https://www.themoviedb.org/t/p/original${x.logo_path}`
@@ -76,7 +76,12 @@ export class ModalOndeAssistirFilmePage implements OnInit {
           this.WatchProviders.flatrate.forEach(x => 
             {
               if (x.provider_id === 8)
-              x.url = this.navParams.data.HomePage;
+              {
+                if (this.navParams.data.HomePage.toString().includes('netflix'))
+                {
+                  x.url = this.navParams.data.HomePage.toLowerCase();
+                }
+              } 
               x.logo_path = `https://www.themoviedb.org/t/p/original${x.logo_path}`
             });
       }
@@ -85,12 +90,17 @@ export class ModalOndeAssistirFilmePage implements OnInit {
       console.log(erro);
     })
   }
-
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Ainda não é possível redirecionar para esse filme.',
+      duration: 2000
+    });
+    toast.present();
+  }
   closeModal() 
   {    
     this.modalCtrl.dismiss();
   }
-
   public openWithSystemBrowser(url : string){
     let target = "_system";
     this.theInAppBrowser.create(url,target,this.options);

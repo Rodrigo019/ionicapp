@@ -30,13 +30,10 @@ export class SerieListagemPage implements OnInit {
         let seriesLinha: Serie[] = [];
         
         retorno.results.forEach(x => {
-          x.poster_path = `https://www.themoviedb.org/t/p/w500${x.poster_path}`;
-          if (cont < 3)
-          {            
-            seriesLinha.push(x);
-            cont++;
-          }
-          else
+          x.poster_path = `https://www.themoviedb.org/t/p/w500${x.poster_path}`;          
+          seriesLinha.push(x);
+          cont++;
+          if (cont == 3)
           {
             this.MatrizDeSeries.push(seriesLinha);
             seriesLinha = [];

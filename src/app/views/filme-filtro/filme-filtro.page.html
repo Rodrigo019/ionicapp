@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      <ion-title>Busca de filmes</ion-title>
+      <ion-back-button defaultHref="/filmes" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>   
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="submit()">
+    <ion-searchbar 
+      (ionChange)="ionChange($event)" 
+      (ionClear)="ionClear()"
+      [debounce]="1"
+      placeholder="Digite o título do filme..."
+      [animated]="true">
+    </ion-searchbar>
+  </form>  
+
+  <ion-list lines="none">
+    <ion-item *ngFor="let linha of MatrizDeFilmes">
+      <ion-row>
+        <ion-col size="4" *ngFor="let filme of linha">
+          <ion-card-content>
+            <img [src]="filme.poster_path" (click)="click(filme)">
+          </ion-card-content>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+</ion-content>
